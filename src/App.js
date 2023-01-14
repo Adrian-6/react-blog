@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import NewPost from './NewPost';
+import PostPage from './PostPage';
+import About from './About';
+import Missing from './Missing'
+import PageLayout from './PageLayout';
+import Home from './Home'
+import { Route, Routes, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 function App() {
+
+  const navigate = useNavigate();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route  path="/" element={<PageLayout />}>
+        <Route index element={<Home />} />
+        <Route path="post">
+          <Route index element={<NewPost />} />
+          <Route path=":id" element={<PostPage />} />
+        </Route>
+        <Route path="about" element={<About />} />
+        <Route path="*" element={<Missing />} />
+      </Route>
+    </Routes>
   );
 }
+
 
 export default App;
