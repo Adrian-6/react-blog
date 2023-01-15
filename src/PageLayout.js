@@ -3,11 +3,12 @@ import Nav from './Nav';
 import Footer from './Footer';
 import { Outlet } from 'react-router-dom';
 
-const PageLayout = ({ search, setSearch }) => {
+const PageLayout = () => {
+
     return (
         <div className="App">
-            <Header title="React JS Blog" />
-            <Nav search={search} setSearch={setSearch} />
+            <Header />
+            <Nav />
             <Outlet />
             <Footer />
         </div>

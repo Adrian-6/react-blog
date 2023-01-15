@@ -1,5 +1,3 @@
-import { isToday } from "date-fns";
-
 const Footer = () => {
     const today = new Date();
     return (
